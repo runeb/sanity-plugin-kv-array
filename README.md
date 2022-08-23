@@ -9,9 +9,28 @@ experimentation for now.
 ```
   import {createConfig} from 'sanity'
   import {keyValueArrayPlugin} from 'sanity-plugin-kv-array'
+
  
   export const createConfig({
       //...
+      schema: {
+        types: [
+          {
+            type: "document",
+            name: "page",
+            fields: [
+              {
+                type: "string",
+                name: "title",
+              },
+              {
+                type: "keyValueArray", // <- type provided by this plugin
+                name: "content"
+              }
+            ]
+          }
+        ]
+      },
       plugins: [
         keyValueArrayPlugin({
           valueTypes: [
