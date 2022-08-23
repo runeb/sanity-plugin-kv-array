@@ -2,30 +2,37 @@
 
 ## Installation
 
-```
-npm install --save sanity-plugin-kv-array
-```
-
-or
-
-```
-yarn add sanity-plugin-kv-array
-```
+This module is not published. Vendor in the plugin or copy code for
+experimentation for now.
 
 ## Usage
-Add it as a plugin in sanity.config.ts (or .js):
-
 ```
- import {createConfig} from 'sanity'
- import {myPlugin} from 'sanity-plugin-kv-array'
-
- export const createConfig({
-     /...
-     plugins: [
-         myPlugin({})
-     ]
- })
+  import {createConfig} from 'sanity'
+  import {keyValueArrayPlugin} from 'sanity-plugin-kv-array'
+ 
+  export const createConfig({
+      //...
+      plugins: [
+        keyValueArrayPlugin({
+          valueTypes: [
+            {
+              type: "string",
+              name: "stringValue"
+            },
+            {
+              type: "text",
+              name: "textValue"
+            },
+            {
+              type: "datetime",
+              name: "datetimeValue"
+            }
+          ]
+        })
+      ]
+  })
 ```
+
 ## License
 
 MIT © Rune Botten
